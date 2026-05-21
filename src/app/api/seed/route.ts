@@ -23,7 +23,7 @@ export async function GET() {
     providers.push({
       providerId: i,
       name: `Provider ${i}`,
-      monthlyQuota: 10,
+      quota: 10,
       quotaUsed: 0,
     });
   }
