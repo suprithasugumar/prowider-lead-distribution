@@ -1,9 +1,9 @@
 import { NextResponse } from "next/server";
-import clientPromise from "@/lib/mongodb";
+import dbConnect from "@/lib/db";
 
 export async function GET() {
-  const client = await clientPromise;
-  const db = client.db();
+  const mongooseInstance = await dbConnect();
+  const db = mongooseInstance.connection.db!;
 
   // Clear old data
   await db.collection("providers").deleteMany({});
